@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'play-project';
+
+  arr = [1,2];
 }

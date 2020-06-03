@@ -1,1 +1,7 @@
-<app-ts-play></app-ts-play>
+<!-- <app-ts-play></app-ts-play> -->
+<app-update-strategy-play  [arr]="arr" [title]="title"> </app-update-strategy-play>
+
+<button (click)="arr.push(3)">Mutate</button>
+<button (click)="arr = [1,2,3]">Recreate</button>
+
+<button (click)="title = 'new Title'">change TItle</button>

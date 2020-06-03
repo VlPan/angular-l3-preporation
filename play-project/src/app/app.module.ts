@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { TsPlayComponent } from 'src/components/ts-play/ts-play.component';
+import { UpdateStrategyPlayComponent } from 'src/components/update-strategy-play/update-strategy-play.component';
+import { ChildComponent } from 'src/components/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TsPlayComponent
+    TsPlayComponent,
+    UpdateStrategyPlayComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
