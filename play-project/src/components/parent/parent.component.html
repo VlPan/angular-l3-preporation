@@ -1,0 +1,15 @@
+{{input}}
+
+<app-child
+  [title]="title"
+  [input]="input"
+>
+
+</app-child>
+
+<input type="number" ([ngModel])="input"  (blur) ="onInput($event)" >
+<button (click)="input = input">update number</button>
+
+<button  (click)="goToOrders()">orders</button>
+<button  routerLink="./orders">orders 2</button>
+<router-outlet></router-outlet>

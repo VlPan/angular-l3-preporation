@@ -1,0 +1,73 @@
+<h1>
+  Reactive form advance example
+</h1>
+
+<form [formGroup]="reactiveProfileForm" (ngSubmit)="onSubmit()">
+  <label for="firstname">
+    FirstName:
+  </label>
+  <input type="text" name="firstname" formControlName="firstName">
+  <p
+    *ngIf="reactiveProfileForm.controls.firstName.invalid &&
+    (reactiveProfileForm.controls.firstName.touched || reactiveProfileForm.controls.firstName.dirty)"
+  > Name is invalid! </p>
+
+  <label for="lastname">
+    LastName:
+  </label>
+  <input type="text" name="lastname" formControlName="lastName"> 
+  <p
+    *ngIf="reactiveProfileForm.controls.lastName.invalid &&
+    (reactiveProfileForm.controls.lastName.touched || reactiveProfileForm.controls.lastName.dirty)"
+  > 
+    Last Name is invalid! </p>
+
+  
+    <div formGroupName="range">
+      min: <input formControlName="min" type="number">
+      max: <input formControlName="max" type="number">
+      {{reactiveProfileForm.controls?.range?.errors | json}}
+      <p *ngIf="reactiveProfileForm.controls?.range?.errors">
+        Wrong Range!!!
+      </p>
+    </div>
+
+  <p
+    *ngIf="reactiveProfileForm.invalid &&
+    (reactiveProfileForm.touched || reactiveProfileForm.dirty)
+    "
+  > 
+    {{reactiveProfileForm.errors?.fieldsNotTheSame}} </p>
+
+    <button type="submit" [disabled]="!reactiveProfileForm.valid">Submit</button>
+</form>
+
+<h1>
+  Template driven form advance example
+</h1>
+
+<form #form="ngForm" (ngSubmit)="logForm(form.value)">
+  <fieldset ngModelGroup="name">
+    <label>Firstname:</label>
+    <input type="text" name="firstname" ngModel required>
+  
+    <label>Lastname:</label>
+    <input type="text" name="lastname" ngModel required>
+  </fieldset>
+  
+  <fieldset ngModelGroup="address">
+    <label>Street:</label>
+    <input type="text" name="street" ngModel minlength="3">
+  
+    <label>Zip:</label>
+    <input type="text" name="zip" ngModel  pattern="[A-Za-z]{5}">
+  
+    <label>City:</label>
+    <input type="text" name="city" ngModel maxlength="10">
+  </fieldset>
+  <button (ngSubmit)="logForm(123)">
+    SSS
+  </button>
+</form>
+
+
